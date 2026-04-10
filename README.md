@@ -6,7 +6,7 @@
 >
 > **注意**：本项目仅负责 Web 端，Go 库本身的功能、维护和更新请以原项目为准。如需将其作为 Go 依赖库使用，请直接前往原作者仓库。
 
-[![tests](https://github.com/ropean/id-validator/actions/workflows/tests.yml/badge.svg)](https://github.com/ropean/id-validator/actions/workflows/tests.yml)
+[![tests](https://github.com/guanguans/id-validator/actions/workflows/tests.yml/badge.svg)](https://github.com/guanguans/id-validator/actions/workflows/tests.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/guanguans/id-validator)](https://goreportcard.com/report/github.com/guanguans/id-validator)
 [![GoDoc](https://godoc.org/github.com/guanguans/id-validator?status.svg)](https://godoc.org/github.com/guanguans/id-validator)
 [![GitHub license](https://img.shields.io/github/license/ropean/id-validator.svg)](https://github.com/ropean/id-validator/blob/master/LICENSE)
