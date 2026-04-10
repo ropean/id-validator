@@ -11,5 +11,5 @@ RUN apk --no-cache add tzdata ca-certificates \
 WORKDIR /app
 COPY --from=builder /app/server .
 USER appuser
-EXPOSE 8080
+EXPOSE 5100
 CMD ["./server"]

@@ -42,7 +42,7 @@ make build && make start
 make docker-build && make docker-up
 ```
 
-Default port is `:8080`, configurable via the `PORT` environment variable.
+Default port is `:5100`, configurable via the `PORT` environment variable.
 
 ## Usage
 

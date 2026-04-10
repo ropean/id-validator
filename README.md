@@ -42,7 +42,7 @@ make build && make start
 make docker-build && make docker-up
 ```
 
-默认监听 `:8080`，通过环境变量 `PORT` 修改端口。
+默认监听 `:5100`，通过环境变量 `PORT` 修改端口。
 
 ## 使用
 

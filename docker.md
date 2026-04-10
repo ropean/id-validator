@@ -6,7 +6,7 @@ make docker-build
 make docker-up
 
 # 浏览器打开
-http://localhost:8080
+http://localhost:5100
 ```
 
 验证容器是否以非 root 运行：
@@ -20,7 +20,7 @@ docker compose exec id-validator whoami
 
 ```bash
 make docker-logs
-# 应输出: Server listening on http://localhost:8080
+# 应输出: Server listening on http://localhost:5100
 ```
 
 停掉：
