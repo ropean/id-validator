@@ -2,17 +2,14 @@
 
 [简体中文](README.md) | [ENGLISH](README-EN.md)
 
-> China ID number validator. - 中国身份证号验证器。
+> 基于 [guanguans/id-validator](https://github.com/guanguans/id-validator) 增加了 Web 服务和可视化界面。
+>
+> **注意**：本项目仅负责 Web 端，Go 库本身的功能、维护和更新请以原项目为准。如需将其作为 Go 依赖库使用，请直接前往原作者仓库。
 
-[![tests](https://github.com/guanguans/id-validator/actions/workflows/tests.yml/badge.svg)](https://github.com/guanguans/id-validator/actions/workflows/tests.yml)
-[![codecov](https://codecov.io/gh/guanguans/id-validator/branch/main/graph/badge.svg?token=7X523bI44b)](https://codecov.io/gh/guanguans/id-validator)
+[![tests](https://github.com/ropean/id-validator/actions/workflows/tests.yml/badge.svg)](https://github.com/ropean/id-validator/actions/workflows/tests.yml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/guanguans/id-validator)](https://goreportcard.com/report/github.com/guanguans/id-validator)
 [![GoDoc](https://godoc.org/github.com/guanguans/id-validator?status.svg)](https://godoc.org/github.com/guanguans/id-validator)
-[![GitHub release](https://img.shields.io/github/tag/guanguans/id-validator.svg)](https://github.com/guanguans/id-validator/releases)
-![GitHub go.mod Go version](https://img.shields.io/github/go-mod/go-version/guanguans/id-validator)
-![GitHub repo size](https://img.shields.io/github/repo-size/guanguans/id-validator)
-![GitHub all releases](https://img.shields.io/github/downloads/guanguans/id-validator/total)
-[![GitHub license](https://img.shields.io/github/license/guanguans/id-validator.svg)](https://github.com/guanguans/id-validator/blob/master/LICENSE)
+[![GitHub license](https://img.shields.io/github/license/ropean/id-validator.svg)](https://github.com/ropean/id-validator/blob/master/LICENSE)
 
 ## 功能
 
@@ -20,20 +17,36 @@
 * 获取身份证号信息
 * 升级 15 位身份证号为 18 位
 * 伪造符合校验的身份证号
+* **Web 服务**：内嵌前端界面，支持 Docker 一键部署
 
 ## 环境要求
 
-* Go >= 1.14
+* Go >= 1.21
 
 ## 安装
 
-```shell script
-$ go get -u github.com/guanguans/id-validator
+```shell
+go get -u github.com/guanguans/id-validator
 ```
+
+## Web 服务
+
+```shell
+# 本地运行
+make dev
+
+# 构建
+make build && make start
+
+# Docker
+make docker-build && make docker-up
+```
+
+默认监听 `:8080`，通过环境变量 `PORT` 修改端口。
 
 ## 使用
 
-这只是一个快速介绍, 请查看 [GoDoc](https://godoc.org/github.com/guanguans/id-validator) 获得详细信息。
+这只是一个快速介绍，请查看 [GoDoc](https://godoc.org/github.com/guanguans/id-validator) 获得详细信息。
 
 ```go
 package main
@@ -55,25 +68,6 @@ func main() {
     // 获取身份证号信息
     ffmt.P(idvalidator.GetInfo("500154199301135886", true))  // 严格模式获取身份证号信息
     ffmt.P(idvalidator.GetInfo("500154199301135886", false)) // 非严格模式获取身份证号信息
-    // []interface {}[
-    //     github.com/guanguans/id-validator.IdInfo{          // 身份证号信息
-    //         AddressCode: int(500154)                           // 地址码
-    //         Abandoned:   int(0)                                // 地址码是否废弃：1为废弃的，0为正在使用的
-    //         Address:     string("重庆市市辖区开州区")             // 地址
-    //         AddressTree: []string[                             // 省市区三级列表
-    //             string("重庆市")                                    // 省
-    //             string("市辖区")                                    // 市
-    //             string("开州区")                                    // 区
-    //         ]
-    //         Birthday:      <1993-01-13 00:00:00 +0800 CST>     // 出生日期
-    //         Constellation: string("摩羯座")                     // 星座
-    //         ChineseZodiac: string("酉鸡")                       // 生肖
-    //         Sex:           int(0)                              // 性别：1为男性，0为女性
-    //         Length:        int(18)                             // 号码长度
-    //         CheckBit:      string("6")                         // 校验码
-    //     }
-    //     <nil>                                              // 错误信息
-    // ]
 
     // 生成可通过校验的假身份证号
     ffmt.P(idvalidator.FakeId())                                  // 随机生成
@@ -81,38 +75,26 @@ func main() {
 
     // 15位号码升级为18位
     ffmt.P(idvalidator.UpgradeId("610104620927690"))
-    // []interface {}[
-    // 	string("610104196209276908") // 升级后号码
-    // 	<nil>                        // 错误信息
-    // ]
 }
 ```
 
 ## 测试
 
-```shell script
-$ make test
+```shell
+make test
 ```
 
 ## 变更日志
 
 请参阅 [CHANGELOG](CHANGELOG.md) 获取最近有关更改的更多信息。
 
-## 贡献指南
+## 致谢
 
-请参阅 [CONTRIBUTING](.github/CONTRIBUTING.md) 有关详细信息。
-
-## 安全漏洞
-
-请查看[我们的安全政策](../../security/policy)了解如何报告安全漏洞。
-
-## 贡献者
-
-* [guanguans](https://github.com/guanguans)
-* [所有贡献者](../../contributors)
+本项目基于 [guanguans/id-validator](https://github.com/guanguans/id-validator) 开发，核心验证逻辑及数据来自原项目，在此对原作者 [guanguans](https://github.com/guanguans) 及所有贡献者表示感谢。
 
 ## 相关项目
 
+* [guanguans/id-validator](https://github.com/guanguans/id-validator)，原始项目
 * [jxlwqq/id-validator](https://github.com/jxlwqq/id-validator)，jxlwqq
 * [jxlwqq/id-validator.py](https://github.com/jxlwqq/id-validator.py)，jxlwqq
 * [mc-zone/IDValidator](https://github.com/mc-zone/IDValidator)，mc-zone

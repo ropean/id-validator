@@ -1,26 +1,89 @@
-# Created by .ignore support plugin (hsz.mobi)
-### Go template
-# Binaries for programs and plugins
+# ── Go ──────────────────────────────────────────────────────────────────────
+# Compiled binaries
 *.exe
 *.exe~
 *.dll
 *.so
 *.dylib
 
-# Test binary, built with `go test -c`
+# Test binaries
 *.test
 
-# Output of the go coverage tool, specifically when used with LiteIDE
+# Coverage
 *.out
+*.out.tmp
+coverage
+coverage.xml
+coverage.html
 
-# Dependency directories (remove the comment below to include it)
+# Profiling
+*.prof
+*.pprof
+
+# Dependency directories
 # vendor/
 
-.idea/
-.DS_Store
-.history/
-tests.go
-coverage.xml
+# Go workspace
+go.work
+go.work.sum
+
+
+# ── This project ────────────────────────────────────────────────────────────
+/bin/
+/server
 /scripts/address*
 /scripts/additional*
-/coverage
+.env
+.env.*
+
+
+# ── macOS ────────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+.fseventsd
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+
+# ── Windows ──────────────────────────────────────────────────────────────────
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+
+# ── Linux ────────────────────────────────────────────────────────────────────
+.directory
+.Trash-*
+
+
+# ── Editors & IDEs ───────────────────────────────────────────────────────────
+# JetBrains (GoLand, IntelliJ…)
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+\#*\#
+.\#*
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# History plugin
+.history/
