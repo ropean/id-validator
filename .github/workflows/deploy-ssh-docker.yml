@@ -41,6 +41,16 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
 
+      - name: Copy docker-compose.yml to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: ${{ secrets.SSH_PORT || 22 }}
+          source: "docker-compose.yml"
+          target: ${{ secrets.SSH_DEPLOY_PATH }}
+
       - name: Deploy to server via SSH
         uses: appleboy/ssh-action@v1
         with:
@@ -52,7 +62,7 @@ jobs:
             echo ${{ secrets.GHCR_PAT }} | docker login ghcr.io -u ropean --password-stdin
             cd ${{ secrets.SSH_DEPLOY_PATH }}
             docker compose pull id-validator
-            docker compose up -d
+            docker compose up -d --remove-orphans
 
       - name: Deployment Summary
         if: always()
