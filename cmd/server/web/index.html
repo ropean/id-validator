@@ -524,7 +524,7 @@
         <div class="card-body" id="body-validate" onclick="event.stopPropagation()">
           <div class="form-group">
             <label class="form-label" for="val-id">身份证号</label>
-            <input class="form-input" id="val-id" type="text" placeholder="输入 15 或 18 位身份证号" maxlength="20"
+            <input class="form-input" id="val-id" type="text" placeholder="输入 15 或 18 位身份证号" maxlength="20" autocomplete="off"
               onkeydown="if(event.key==='Enter') runValidate()">
           </div>
           <div class="toggle-row">
@@ -564,7 +564,7 @@
         <div class="card-body" id="body-info" onclick="event.stopPropagation()">
           <div class="form-group">
             <label class="form-label" for="info-id">身份证号</label>
-            <input class="form-input" id="info-id" type="text" placeholder="输入 15 或 18 位身份证号" maxlength="20"
+            <input class="form-input" id="info-id" type="text" placeholder="输入 15 或 18 位身份证号" maxlength="20" autocomplete="off"
               onkeydown="if(event.key==='Enter') runInfo()">
           </div>
           <div class="toggle-row">
@@ -631,7 +631,7 @@
         <div class="card-body" id="body-upgrade" onclick="event.stopPropagation()">
           <div class="form-group">
             <label class="form-label" for="up-id">15 位身份证号</label>
-            <input class="form-input" id="up-id" type="text" placeholder="输入旧版 15 位身份证号" maxlength="15"
+            <input class="form-input" id="up-id" type="text" placeholder="输入旧版 15 位身份证号" maxlength="15" autocomplete="off"
               onkeydown="if(event.key==='Enter') runUpgrade()">
           </div>
           <div class="action-row">
