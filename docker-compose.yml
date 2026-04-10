@@ -1,6 +1,6 @@
 services:
   id-validator:
-    build: .
+    image: ghcr.io/ropean/id-validator:latest
     restart: unless-stopped
     ports:
       - "8080:8080"

@@ -1,0 +1,4 @@
+services:
+  id-validator:
+    build: .
+    image: id-validator:local

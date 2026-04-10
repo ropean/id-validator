@@ -51,21 +51,18 @@ jobs:
           script: |
             echo ${{ secrets.GHCR_PAT }} | docker login ghcr.io -u ropean --password-stdin
             cd ${{ secrets.SSH_DEPLOY_PATH }}
-            docker compose pull app
+            docker compose pull id-validator
             docker compose up -d
 
       - name: Deployment Summary
         if: always()
         shell: bash
         run: |
-          VERSION=$(jq -r '.version' package.json)
-
           cat >> $GITHUB_STEP_SUMMARY << EOF
           ## Deployment Completed
 
           | Item | Details |
           |------|---------|
-          | **Version** | v$VERSION |
           | **Image** | ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest |
           | **Commit** | ${{ github.sha }} |
           | **Server** | ${{ secrets.SSH_HOST }} |
