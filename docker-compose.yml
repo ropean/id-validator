@@ -1,6 +1,7 @@
 services:
   id-validator:
     image: ghcr.io/ropean/id-validator:latest
+    container_name: id-validator
     restart: unless-stopped
     ports:
       - "5100:5100"
